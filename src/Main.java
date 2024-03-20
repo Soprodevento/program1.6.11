@@ -19,7 +19,8 @@ public class Main {
         for(int j =0; j < textLines.length; j++){
             String replica = textLines[j];
             if (replica.startsWith(roles[i] + ":")){
-                dialog.append(replica).append("\n");
+                String replica2 = replica.replaceFirst(roles[i] + ":", String.valueOf(j+1));
+                dialog.append(replica2).append("\n");
             }
         }
     }
