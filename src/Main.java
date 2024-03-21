@@ -13,17 +13,18 @@ public class Main {
         System.out.println(printTextPerRole(roles, textLines));
     }
     public static String printTextPerRole(String[] roles, String[] textLines) {
-    StringBuilder dialog = new StringBuilder();
-    for(int i = 0; i < roles.length; i++){
-        dialog.append(roles[i]).append(":").append("\n");
-        for(int j =0; j < textLines.length; j++){
-            String replica = textLines[j];
-            if (replica.startsWith(roles[i] + ":")){
-                String replica2 = replica.replaceFirst(roles[i] + ":", String.valueOf(j+1));
-                dialog.append(replica2).append("\n");
+        StringBuilder dialog = new StringBuilder();
+        for(int i = 0; i < roles.length; i++){
+            dialog.append(roles[i]).append(":").append("\n");
+            for(int j =0; j < textLines.length; j++){
+                String replica = textLines[j];
+                if (replica.startsWith(roles[i] + ":" )){
+                    String replica2 = replica.replaceFirst(roles[i] + ":" , String.valueOf(j+1) + ")");
+                    dialog.append(replica2).append("\n");
+                }
             }
+            dialog.append("\n");
         }
-    }
         return String.valueOf(dialog);
     }
 }
